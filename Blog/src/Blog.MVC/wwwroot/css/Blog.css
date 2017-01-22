@@ -89,3 +89,15 @@ body {
 .last-img {
     padding-bottom: 10px;
 }
+
+.text-danger {
+    color: #dc0000;
+    font-weight: 900;
+    margin-left:10px;
+}
+
+
+.form-control {
+    width:90%;
+    margin-left:10px;
+}
