@@ -1,0 +1,74 @@
+@model Blog.MVC.Models.Post
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Post</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ID" />
+        <div class="form-group">
+            <label asp-for="Title" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Subtitle" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Subtitle" class="form-control" />
+                <span asp-validation-for="Subtitle" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Text" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <textarea asp-for="Text" class="form-control"></textarea>
+                <span asp-validation-for="Text" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            height: 500,
+            theme: 'modern',
+            plugins: [
+              'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+              'searchreplace wordcount visualblocks visualchars code fullscreen',
+              'insertdatetime media nonbreaking save table contextmenu directionality',
+              'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
+            ],
+            toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
+            image_advtab: true,
+            templates: [
+              { title: 'Test template 1', content: 'Test 1' },
+              { title: 'Test template 2', content: 'Test 2' }
+            ],
+            content_css: [
+              '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+              '//www.tinymce.com/css/codepen.min.css'
+            ]
+        });</script>
+}

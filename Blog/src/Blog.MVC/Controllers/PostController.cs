@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Blog.MVC.Data;
+using Blog.MVC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Blog.MVC.Controllers
 {
@@ -29,8 +31,40 @@ namespace Blog.MVC.Controllers
             return View(post.SingleOrDefault());
         }
 
-        public IActionResult Error()
+        [Authorize]
+        public IActionResult List()
         {
+            var model = _context.Posts.ToList();
+            return View(model);
+        }
+        [Authorize]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [Authorize]
+        [HttpPost]
+        public IActionResult Create(Post model)
+        {
+            model.createDate = DateTime.Now;
+            _context.Posts.Add(model);
+            _context.SaveChanges();
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult Edit(int id)
+        {
+            var post = _context.Posts.Where(t => t.ID == id).SingleOrDefault();
+            return View(post);
+        }
+        [Authorize]
+        [HttpPost]
+        public IActionResult Edit(int id, [Bind("ID,Text,Title,Subtitle")]Post model)
+        {
+
+            _context.Update(model);
+            _context.SaveChanges();
             return View();
         }
     }
