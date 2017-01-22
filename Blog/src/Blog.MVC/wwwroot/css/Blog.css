@@ -1,0 +1,91 @@
+﻿@font-face {
+    font-family: 'roboto-regular';
+    src: url('../fonts/roboto/roboto-regular.ttf') format('truetype');
+}
+
+body {
+    font-family: roboto-regular;
+}
+
+.featured {
+    background-color: #202020;
+    color: white;
+}
+
+    .featured .carousel {
+        padding: 40px;
+    }
+
+    .featured h1 {
+        color: #fff337;
+    }
+
+    .featured .btn {
+        color: white;
+        background-color: #ff7526;
+    }
+
+.posts h1 {
+    color: #1190cd;
+}
+
+.posts {
+    color: #454646;
+}
+
+.bg {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.footer {
+    background: url(/images/backgroundfooter.png) repeat center center fixed;
+    color: white;
+}
+
+.title {
+    background: url(/images/background1.png) center center;
+    min-height: 350px;
+    padding: 0px;
+}
+
+    .title img {
+        padding-top: 75px;
+    }
+
+.middler {
+    padding-top: 10px;
+}
+
+.form {
+    background: url(/images/background-form.png) repeat center center;
+    color: white;
+}
+
+    .form h4 {
+        padding-top: 15px;
+    }
+
+    .form .btn {
+        margin-bottom: 10px;
+    }
+
+    .form h4 {
+        color: #ff7526;
+    }
+
+    .form .btn {
+        color: white;
+        background-color: #1190cd;
+    }
+
+
+.img-footer {
+    padding-top: 30px;
+}
+
+.last-img {
+    padding-bottom: 10px;
+}

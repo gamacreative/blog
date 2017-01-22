@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-Blog.MVC-16a506b3-d102-487f-9df5-014c62e42db3",
 
   "dependencies": {
@@ -42,7 +42,8 @@
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc": {
       "version": "1.0.0-preview2-final",
       "type": "build"
-    }
+    },
+    "MailKit": "1.10.1"
   },
 
   "tools": {

@@ -8,12 +8,13 @@
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link href="~/css/Blog.css" rel="stylesheet" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
 </head>
 <body>
@@ -26,25 +27,80 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Blog.MVC</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Post" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="#" asp-action="#">Calculadora de Mudanças (Em breve)</a></li>
+                    <li><a asp-area="" asp-controller="#" asp-action="#" class="navbar-left left">Receber novidades</a></li>
                 </ul>
-                @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2017 - Blog.MVC</p>
-        </footer>
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="title col-lg-12">
+                <img src="~/images/logo_principal.png" class="img-responsive center-block" />
+            </div>
+
+        </div>
+
+
+        <div class="row featured">
+            <div id="myCarousel2" class="carousel slide" data-ride="carousel" data-interval="6000">
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <div class="">
+                            <div class="col-md-3 col-md-offset-1">
+                                <img src="~/images/canivete.png" alt="canivete" class="img-circle img-responsive" />
+
+                            </div>
+                            <div class="col-md-8">
+                                <h1>[Destaque</h1>
+                                <h2>
+                                    O GUIA COMPLETO PARA A SUA PRIMEIRA MUDANÇA
+                                </h2>
+                                <h3>Principais duvidas, dicas, depoimentos, etc</h3>
+                                <p><button class="btn btn-default">Baixe agora</button></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="row middler">
+        <div class="container">
+            <div class="col-lg-8">
+                @RenderBody()
+            </div>
+            <div class="col-lg-offset-1 col-lg-3 col-md-4 col-sm-4 col-xs-6">
+                @await Html.PartialAsync("_Lead", new Lead())
+            </div>
+        </div>
+    </div>
+    <hr />
+
+    </div>
+    <footer>
+        <div class="container-fluid">
+            <div class="col-lg-12 bg footer">
+
+                <div class="col-lg-6">
+                    <div class="row">
+                        <img src="~/images/logo_footer.png" class="img-responsive img-footer" />
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <img src="~/images/ico_fb.png" class="img-responsive col-lg-2" /> <h3 class="col-lg-5">/moodei</h3>
+                    </div>
+                    <div class="row">
+                        <img src="~/images/ico_email.png" class="img-responsive last-img col-lg-2" /> <h3 class="col-lg-5">contato@moodei.com.br</h3>
+                    </div>
+                </div>
+            </div>
+    </footer>
 
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

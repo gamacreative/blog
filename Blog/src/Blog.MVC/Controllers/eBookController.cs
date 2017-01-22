@@ -1,7 +1,11 @@
 using Blog.MVC.Data;
 using Blog.MVC.Models;
+using MailKit.Net.Smtp;
+using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Blog.MVC.Controllers
 {
@@ -23,6 +27,7 @@ namespace Blog.MVC.Controllers
         [HttpPost]
         public IActionResult Create(Lead model)
         {
+            SendEmail(model.Email, "eBook", "Teste eBook");
             //TODO: validações
             model.IP = Request.HttpContext.Connection.RemoteIpAddress.ToString();
             _context.Leads.Add(model);
@@ -31,6 +36,24 @@ namespace Blog.MVC.Controllers
             return View(model);
         }
 
+
+        public void SendEmail(string email, string subject, string message)
+        {
+            var emailMessage = new MimeMessage();
+
+            emailMessage.From.Add(new MailboxAddress("Joe Bloggs", "jbloggs@example.com"));
+            emailMessage.To.Add(new MailboxAddress("", email));
+            emailMessage.Subject = subject;
+            emailMessage.Body = new TextPart("plain") { Text = message };
+
+            using (var client = new SmtpClient())
+            {
+                client.LocalDomain = "some.domain.com";
+                client.ConnectAsync("smtp.relay.uri", 25, SecureSocketOptions.None).ConfigureAwait(false);
+                client.SendAsync(emailMessage).ConfigureAwait(false);
+                client.DisconnectAsync(true).ConfigureAwait(false);
+            }
+        }
 
         public IActionResult Download(int ID)
         {
