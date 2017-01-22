@@ -7,6 +7,11 @@ namespace Blog.MVC.Models
 {
     public class PostTag
     {
+        public PostTag()
+        {
+            Post = new Post();
+            Tag = new Tag();
+        }
         public int PostID { get; set; }
         public int TagID { get; set; }
 

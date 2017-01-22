@@ -7,6 +7,11 @@ namespace Blog.MVC.Models
 {
     public class Post
     {
+        public Post()
+        {
+            Author = new ApplicationUser();
+            PostTags = new List<PostTag>();
+        }
         public int ID { get; set; }
         public string Title { get; set; }
         public string Subtitle { get; set; }

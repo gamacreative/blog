@@ -17,6 +17,7 @@ namespace Blog.MVC.Data
 
         public DbSet<Post> Posts { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<Lead> Leads { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -33,8 +34,17 @@ namespace Blog.MVC.Data
                 .WithMany(t => t.PostTag)
                 .HasForeignKey(t => t.TagID);
 
-            builder.Entity<Post>().HasKey(t => t.ID);
-            builder.Entity<Tag>().HasKey(t => t.ID);
+            builder.Entity<Post>()
+                .HasKey(t => t.ID);
+
+            builder.Entity<Tag>()
+                .HasKey(t => t.ID);
+
+            builder.Entity<Lead>()
+                .HasKey(t => t.ID);
+
+            builder.Entity<Lead>()
+                .HasAlternateKey(t => t.Email);
 
 
             base.OnModelCreating(builder);
