@@ -38,7 +38,6 @@ namespace Blog.MVC.Controllers
             catch (System.Exception)
             {
 
-                throw;
             }
             return View(model);
         }
