@@ -39,7 +39,7 @@ namespace Blog.MVC.Controllers
             {
 
             }
-            return View(model);
+            return View("Download");
         }
 
 
