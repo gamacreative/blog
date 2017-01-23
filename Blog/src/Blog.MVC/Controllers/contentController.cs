@@ -27,12 +27,18 @@ namespace Blog.MVC.Controllers
         [HttpPost]
         public IActionResult Create(Lead model)
         {
-            SendEmail(model.Email, "eBook", "Teste eBook");
-            //TODO: validações
-            model.IP = Request.HttpContext.Connection.RemoteIpAddress.ToString();
-            _context.Leads.Add(model);
-            _context.SaveChanges();
+            try
+            {
+                //SendEmail(model.Email, "eBook", "Teste eBook");
+                //TODO: validações
+                model.IP = Request.HttpContext.Connection.RemoteIpAddress.ToString();
+                _context.Leads.Add(model);
+                _context.SaveChanges();
+            }
+            catch (System.Exception)
+            {
 
+            }
             return View(model);
         }
 

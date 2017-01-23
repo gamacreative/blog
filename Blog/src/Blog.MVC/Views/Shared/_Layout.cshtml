@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Blog.MVC</title>
+    <title>Moodei</title>
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
         <link href="~/css/Blog.css" rel="stylesheet" />
-        
+
         <script src="~/js/jquery-3.1.1.js"></script>
         <script src="~/js/jquery.validate.js"></script>
         <script src="~/js/jquery.validate.unobtrusive.js"></script>
@@ -19,6 +19,7 @@
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link href="~/css/Blog.css" rel="stylesheet" />
         <script src="~/js/jquery-3.1.1.js"></script>
         <script src="~/js/jquery.validate.js"></script>
         <script src="~/js/jquery.validate.unobtrusive.js"></script>
@@ -78,13 +79,11 @@
     </div>
     <div class="row middler">
         <div class="container">
-            <div class="col-lg-8">
-                @RenderBody()
-            </div>
-            <div class="col-lg-offset-1 col-lg-3 col-md-4 col-sm-4 col-xs-6">
-                @await Html.PartialAsync("_Lead", new Lead())
-            </div>
+
+            @RenderBody()
         </div>
+
+    </div>
     </div>
     <hr />
 
@@ -100,10 +99,10 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="row">
-                        <img src="~/images/ico_fb.png" class="img-responsive col-lg-2" /> <h3 class="col-lg-5">/moodei</h3>
+                        <img src="~/images/ico_fb.png" class="img-responsive col-lg-2 col-xs-3" /> <h3 class="col-lg-5">/moodei</h3>
                     </div>
                     <div class="row">
-                        <img src="~/images/ico_email.png" class="img-responsive last-img col-lg-2" /> <h3 class="col-lg-5">contato@moodei.com.br</h3>
+                        <img src="~/images/ico_email.png" class="img-responsive last-img col-lg-2 col-xs-3" /> <h3 class="col-lg-5">contato@moodei.com.br</h3>
                     </div>
                 </div>
             </div>
