@@ -61,6 +61,7 @@ namespace Blog.MVC.Controllers
             }
         }
 
+        [HttpPost]
         public IActionResult Download(int ID)
         {
             var lead = _context.Leads.Where(t => t.ID == ID).SingleOrDefault();
