@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Blog.MVC.Controllers
 {
-    public class eBookController : Controller
+    public class contentController : Controller
     {
 
         private readonly ApplicationDbContext _context;
 
-        public eBookController(ApplicationDbContext context)
+        public contentController(ApplicationDbContext context)
         {
             _context = context;
         }

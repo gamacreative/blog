@@ -10,7 +10,7 @@ namespace Blog.MVC.Models
     {
         public int ID { get; set; }
 
-        [System.ComponentModel.DataAnnotations.StringLength(150, MinimumLength = 3)]
+        [System.ComponentModel.DataAnnotations.StringLength(150, MinimumLength = 5)]
         [Required(ErrorMessage = "Nome obrigatório")]
         [Display(Name = "Nome*")]
         public string Name { get; set; }

@@ -1,0 +1,13 @@
+@model Blog.MVC.Models.Lead
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Obrigado pelo interesse em nossos Conteudos.<br />
+    Aproveite agora seu material e moode com tranquilidade! </h2>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
