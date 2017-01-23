@@ -40,12 +40,12 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Post" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="#" asp-action="#">Calculadora de Mudanças (Em breve)</a></li>
-                    <li><a asp-area="" asp-controller="#" asp-action="#" class="navbar-left left">Receber novidades</a></li>
+                    <li><a asp-area="" asp-controller="Content" asp-action="Index" class="navbar-left left">Receber novidades</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container-fluid ">
+    <div class="container-fluid">
         <div class="row">
             <div class="title col-lg-12">
                 <img src="~/images/logo_principal.png" class="img-responsive center-block" />
@@ -69,7 +69,7 @@
                                     O GUIA COMPLETO PARA A SUA PRIMEIRA MUDANÇA
                                 </h2>
                                 <h3>Principais duvidas, dicas, depoimentos, etc</h3>
-                                <p><button class="btn btn-default">Baixe agora</button></p>
+                                <p><a asp-action="index" asp-controller="Content" class="btn btn-default">Baixe agora</a></p>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
         </div>
     </div>
     <div class="row middler">
-        <div class="container">
+        <div class="container body-content">
 
             @RenderBody()
         </div>
@@ -89,21 +89,13 @@
 
     </div>
     <footer>
-        <div class="container-fluid">
+        <div class="container">
             <div class="col-lg-12 bg footer">
-
-                <div class="col-lg-6">
-                    <div class="row">
-                        <img src="~/images/logo_footer.png" class="img-responsive img-footer" />
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row">
-                        <img src="~/images/ico_fb.png" class="img-responsive col-lg-2 col-xs-3" /> <h3 class="col-lg-5">/moodei</h3>
-                    </div>
-                    <div class="row">
-                        <img src="~/images/ico_email.png" class="img-responsive last-img col-lg-2 col-xs-3" /> <h3 class="col-lg-5">contato@moodei.com.br</h3>
-                    </div>
+                <div class="center-block col-lg-12">
+                    <img src="~/images/ico_fb.png" class="img-responsive col-lg-1 col-xs-3" />
+                    <img src="~/images/instagram-logo.png" class="img-responsive col-lg-1 col-xs-3" />
+                    <img src="~/images/twitter-logo-button.png" class="img-responsive col-lg-1 col-xs-3" />
+                    <img src="~/images/ico_email.png" class="img-responsive col-lg-1 col-xs-3" />
                 </div>
             </div>
     </footer>

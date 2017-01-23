@@ -5,7 +5,21 @@
 
 body {
     font-family: roboto-regular;
+    overflow-x: hidden;
 }
+
+.navbar-inverse {
+    background-color: #0c6996 !important;
+    border-color: #0c6996 !important;
+    color: white;
+    background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0%, rgba(0,0,0,0.00)),color-stop( 100%, rgba(0,0,0,0.00)));
+    background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+    background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: white;
+    }
 
 .featured {
     background-color: #202020;
@@ -93,11 +107,11 @@ body {
 .text-danger {
     color: #dc0000;
     font-weight: 900;
-    margin-left:10px;
+    margin-left: 10px;
 }
 
 
 .form-control {
-    width:90%;
-    margin-left:10px;
+    width: 90%;
+    margin-left: 10px;
 }

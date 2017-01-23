@@ -3,9 +3,15 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h2>Obrigado pelo interesse em nossos Conteudos.<br />
-    Aproveite agora seu material e moode com tranquilidade! </h2>
+<div class="col-lg-8">
+    <h2>
+        <p>Obrigado pelo interesse em nossos Conteudos.</p>
+        Aproveite agora seu material e moode com tranquilidade!
+    </h2>
+</div>
+<div class="col-lg-offset-1 col-lg-3 col-md-4 col-sm-4 col-xs-12">
+    @await Html.PartialAsync("_Lead", new Lead())
+</div>
 
 
 @section Scripts {
