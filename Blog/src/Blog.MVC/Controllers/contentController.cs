@@ -4,6 +4,7 @@ using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -41,6 +42,7 @@ namespace Blog.MVC.Controllers
 
                 //SendEmail(model.Email, "eBook", "Teste eBook");
                 //TODO: validações
+                model.dataCriacao = DateTime.Now;
                 model.IP = Request.HttpContext.Connection.RemoteIpAddress.ToString();
                 _context.Leads.Add(model);
                 _context.SaveChanges();
