@@ -29,15 +29,26 @@ namespace Blog.MVC.Controllers
         {
             try
             {
+                if (model.Name.Split(' ').Count() < 2)
+                {
+                    throw new System.Exception("Preencher nome completo.");
+                }
+
+                var email = _context.Leads.Where(t => t.Email == model.Email).Count();
+                if (email > 0)
+                    return View("Download");
+
+
                 //SendEmail(model.Email, "eBook", "Teste eBook");
                 //TODO: validações
                 model.IP = Request.HttpContext.Connection.RemoteIpAddress.ToString();
                 _context.Leads.Add(model);
                 _context.SaveChanges();
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-
+                ViewData["Error"] = ex.Message;
+                return View("Index");
             }
             return View("Download");
         }
