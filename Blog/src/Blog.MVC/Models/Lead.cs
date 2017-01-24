@@ -25,5 +25,6 @@ namespace Blog.MVC.Models
         public string City { get; set; }
         public string IP { get; set; }
         public int DownloadCount { get; set; }
+        public DateTime? dataCriacao { get; set; }
     }
 }

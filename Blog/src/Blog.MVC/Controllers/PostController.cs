@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Blog.MVC.Data;
 using Blog.MVC.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace Blog.MVC.Controllers
 {
@@ -60,12 +61,40 @@ namespace Blog.MVC.Controllers
         }
         [Authorize]
         [HttpPost]
-        public IActionResult Edit(int id, [Bind("ID,Text,Title,Subtitle")]Post model)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Title,Subtitle,Text")] Post Post)
         {
+            if (id != Post.ID)
+            {
+                return NotFound();
+            }
 
-            _context.Update(model);
-            _context.SaveChanges();
-            return View();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(Post);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!PostExists(Post.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction("Index");
+            }
+            return View(Post);
+        }
+
+        private bool PostExists(int id)
+        {
+            return _context.Posts.Any(e => e.ID == id);
         }
     }
 }

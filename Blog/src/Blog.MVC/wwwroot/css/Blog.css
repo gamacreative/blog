@@ -8,6 +8,14 @@ body {
     overflow-x: hidden;
 }
 
+ a:link,
+ a:visited,
+ a:hover,
+ a:active {
+    color:#ff6000;
+}
+
+
 .navbar-inverse {
     background-color: #0c6996 !important;
     border-color: #0c6996 !important;
@@ -20,6 +28,7 @@ body {
     .navbar-inverse .navbar-nav > li > a {
         color: white;
     }
+
 
 .featured {
     background-color: #202020;
@@ -58,6 +67,21 @@ body {
     background: url(/images/backgroundfooter.png) repeat center center fixed;
     color: white;
 }
+
+    .footer .footer-inner {
+        position: relative;
+        width: 50%;
+        height: 50%;
+        top: 25%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .footer .item {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px; 
+    }
 
 .title {
     background: url(/images/background1.png) center center;
