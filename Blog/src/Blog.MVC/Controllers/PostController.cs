@@ -49,6 +49,14 @@ namespace Blog.MVC.Controllers
         {
             return View();
         }
+
+        
+        public IActionResult about()
+        {
+            return View();
+        }
+
+
         [Authorize]
         [HttpPost]
         public IActionResult Create(Post model)
@@ -104,3 +112,6 @@ namespace Blog.MVC.Controllers
         }
     }
 }
+
+
+

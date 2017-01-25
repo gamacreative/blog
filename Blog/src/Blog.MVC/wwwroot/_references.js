@@ -1,5 +1,6 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="js/jquery.validate.js" />
+/// <reference path="js/jquery.validate.unobtrusive.js" />
 /// <reference path="js/jquery-3.1.1.js" />
 /// <reference path="js/site.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
