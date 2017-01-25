@@ -32,6 +32,12 @@ namespace Blog.MVC.Controllers
             return View(post.SingleOrDefault());
         }
 
+        public IActionResult View(string id)
+        {
+            var post = _context.Posts.FromSql("select * from posts where title = {0} COLLATE LATIN1_GENERAL_CI_AI", id.Replace('-', ' ')); ;
+            return View("Details", post.SingleOrDefault());
+        }
+
         [Authorize]
         public IActionResult List()
         {

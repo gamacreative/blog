@@ -1,9 +1,14 @@
 ﻿@{
-    ViewData["Title"] = "About";
+    Layout = "~/Views/Shared/_LayoutPosts.cshtml";
 }
 @model Post
+
 <div class="col-lg-7">
-    <h2>@Model.Title.</h2>
+    <h2>@Model.Title</h2>
+    @if (!string.IsNullOrEmpty(Model.imgUrl))
+    {
+        <img alt="image post" class="img-responsive" src="@Model.imgUrl" />
+    }
     <h3>@Model.Subtitle</h3>
 
     @Html.Raw(Model.Text)
