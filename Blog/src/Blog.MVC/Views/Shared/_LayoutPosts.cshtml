@@ -134,7 +134,13 @@
 
     </script>
     <script>
-        $('#myModal').modal('show');
+        var aux = false;
+        $(document).mouseleave(function () {
+            if (!aux) {
+                $('#myModal').modal('show');
+                aux = true;
+            }
+        });
     </script>
 
     @RenderSection("scripts", required: false)

@@ -33,7 +33,6 @@
     <meta property="og:url" content="http://@Context.Request.Host@Context.Request.Path" />
     <meta property="og:image" content="@string.Format("http://{0}{1}images/profile.png", new string[] { Context.Request.Host.ToString(), Context.Request.Path })" />
 }
- />
-}
+
 
 @await Html.PartialAsync("_LeadModal", new Lead())
