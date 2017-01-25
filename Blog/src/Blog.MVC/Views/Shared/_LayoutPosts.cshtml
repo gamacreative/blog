@@ -141,6 +141,12 @@
                 aux = true;
             }
         });
+        $(document).scroll(function () {
+            if (!aux) {
+                aux = true;
+                $('#myModal').modal('show');
+            }
+        });
     </script>
 
     @RenderSection("scripts", required: false)
