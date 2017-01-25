@@ -12,6 +12,9 @@
     <h3>@Model.Subtitle</h3>
 
     @Html.Raw(Model.Text)
+    <p>
+        <div class="fb-like" data-href="http://@Context.Request.Host@Context.Request.Path" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    </p>
 </div>
 <div class="col-lg-offset-1 col-lg-3 col-md-4 col-sm-4 col-xs-12">
     @await Html.PartialAsync("_Lead", new Lead())
@@ -19,7 +22,7 @@
 
 @section Head
 {
-    @{var img = string.IsNullOrEmpty(Model.imgUrl) ? string.Format("http://{0}/images/logo_principal.png", new string[] { Context.Request.Host.ToString() }) : Model.imgUrl;
+    @{var img = string.IsNullOrEmpty(Model.imgUrl) ? string.Format("http://{0}/images/profile.png", new string[] { Context.Request.Host.ToString() }) : Model.imgUrl;
 
     }
     <meta property="og:title" content="@Model.Title - Moodei" />
@@ -27,4 +30,19 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://@Context.Request.Host@Context.Request.Path" />
     <meta property="og:image" content="@img" />
+}
+
+@await Html.PartialAsync("_LeadModal", new Lead())
+
+@section Scripts
+{
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=391165904361130";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 }

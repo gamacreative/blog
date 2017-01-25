@@ -14,7 +14,7 @@ namespace Blog.MVC.Models
         [Required(ErrorMessage = "Nome obrigatório")]
         [Display(Name = "Nome*")]
         public string Name { get; set; }
-        [RegularExpression(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", ErrorMessage = "Email inválido")]
+        [EmailAddress]
         [Required(ErrorMessage = "Email obrigatório")]
         public string Email { get; set; }
         [Display(Name = "Estado")]

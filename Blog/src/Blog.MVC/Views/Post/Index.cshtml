@@ -6,7 +6,7 @@
 <div class="col-lg-7 col-xs-10 col-xs-offset-1 col-xs-pull-1">
     <div class="posts col-xs-offset-1 col-xs-pull-1">
 
-        <h1><b>[RECENTES</b></h1>
+        <h1><b>RECENTES</b></h1>
 
         @foreach (var item in Model)
         {
@@ -31,5 +31,9 @@
     <meta property="og:description" content="Quem aí já não pensou em sair de casa e começar uma carreira solo nesse mundão sem porteiras? E como fazer isso acontecer, sem medo de ser feliz? Somos a Moodei e vamos te ajudar sendo o seu guia prático nessa nova vida. Seja para fazer faculdade ou mesmo para ter seu próprio espaço, te damos todas as dicas e materiais que você precisa para moodar com tranquilidade. Moode com a gente!" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://@Context.Request.Host@Context.Request.Path" />
-    <meta property="og:image" content="@string.Format("http://{0}{1}images/logo_principal.png", new string[] { Context.Request.Host.ToString(), Context.Request.Path })" />
+    <meta property="og:image" content="@string.Format("http://{0}{1}images/profile.png", new string[] { Context.Request.Host.ToString(), Context.Request.Path })" />
 }
+ />
+}
+
+@await Html.PartialAsync("_LeadModal", new Lead())

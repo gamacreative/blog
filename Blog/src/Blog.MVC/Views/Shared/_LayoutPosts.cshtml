@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @RenderSection("Head", required: false)
-    
+
     <title>Moodei</title>
     <link rel="icon" href="~/images/favicon.ico">
     <environment names="Development">
@@ -67,7 +67,7 @@
 
                             </div>
                             <div class="col-md-8">
-                                <h1><b>[DESTAQUE</b></h1>
+                                <h1><b>DESTAQUE</b></h1>
                                 <h2>
                                     O GUIA COMPLETO PARA A SUA PRIMEIRA MUDANÇA
                                 </h2>
@@ -132,6 +132,9 @@
         ga('create', 'UA-90770429-1', 'auto');
         ga('send', 'pageview');
 
+    </script>
+    <script>
+        $('#myModal').modal('show');
     </script>
 
     @RenderSection("scripts", required: false)
