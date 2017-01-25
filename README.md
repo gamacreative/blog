@@ -1,4 +1,4 @@
-# blog
+﻿# blog
 
 Desenvolvimento de um blog sobre Mudanças, primeira casa e morar sozinho para o GAMA #03
 
@@ -8,4 +8,4 @@ Utilizamos o MVC do ASP.NET core e depois mudamos para o 4.6 utilizando algumas 
 
 Usamos o banco de dados SQL server 2014 acessando o mesmo com Entity Framework Core.
 
-Para testar o nosso projeto abra-o no Visual Studio 2015 e clica em iniciar.
+Para testar o nosso projeto abra o arquivo Blog.MVC.xproj no Visual Studio 2015 e clica em iniciar.
