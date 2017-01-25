@@ -21,7 +21,7 @@ namespace Blog.MVC.Controllers
 
         public IActionResult Index(int page = 0)
         {
-            var posts = _context.Posts.OrderBy(t => t.createDate).Skip(10 * page).Take(10);
+            var posts = _context.Posts.OrderByDescending(t => t.createDate).Skip(10 * page).Take(10);
 
             return View(posts.ToList());
         }
@@ -34,7 +34,7 @@ namespace Blog.MVC.Controllers
 
         public IActionResult View(string id)
         {
-            var post = _context.Posts.FromSql("select * from posts where title = {0} COLLATE LATIN1_GENERAL_CI_AI", id.Replace('-', ' ')); ;
+            var post = _context.Posts.Where(t => t.url == id);
             return View("Details", post.SingleOrDefault());
         }
 
@@ -50,7 +50,7 @@ namespace Blog.MVC.Controllers
             return View();
         }
 
-        
+
         public IActionResult about()
         {
             return View();

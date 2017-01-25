@@ -16,3 +16,15 @@
 <div class="col-lg-offset-1 col-lg-3 col-md-4 col-sm-4 col-xs-12">
     @await Html.PartialAsync("_Lead", new Lead())
 </div>
+
+@section Head
+{
+    @{var img = string.IsNullOrEmpty(Model.imgUrl) ? string.Format("http://{0}/images/logo_principal.png", new string[] { Context.Request.Host.ToString() }) : Model.imgUrl;
+
+    }
+    <meta property="og:title" content="@Model.Title - Moodei" />
+    <meta property="og:description" content="Quem aí já não pensou em sair de casa e começar uma carreira solo nesse mundão sem porteiras? E como fazer isso acontecer, sem medo de ser feliz? Somos a Moodei e vamos te ajudar sendo o seu guia prático nessa nova vida. Seja para fazer faculdade ou mesmo para ter seu próprio espaço, te damos todas as dicas e materiais que você precisa para moodar com tranquilidade. Moode com a gente!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://@Context.Request.Host@Context.Request.Path" />
+    <meta property="og:image" content="@img" />
+}

@@ -8,13 +8,16 @@ body {
     overflow-x: hidden;
 }
 
- a:link,
- a:visited,
- a:hover,
- a:active {
-    color:#ff6000;
+.mainTitle {
+    color: #1190cd !important;
 }
 
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #ff6000;
+}
 
 .navbar-inverse {
     background-color: #0c6996 !important;
@@ -80,7 +83,7 @@ body {
     .footer .item {
         padding-top: 10px;
         padding-bottom: 10px;
-        padding-left: 20px; 
+        padding-left: 20px;
     }
 
 .title {

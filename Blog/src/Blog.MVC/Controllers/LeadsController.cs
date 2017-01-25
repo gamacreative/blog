@@ -21,7 +21,7 @@ namespace Blog.MVC.Controllers
 
         public IActionResult Index(int page = 0)
         {
-            var leads = _context.Leads.Skip(100 * 0).Take(100).ToList();
+            var leads = _context.Leads.Count();
             return View(leads);
         }
     }
