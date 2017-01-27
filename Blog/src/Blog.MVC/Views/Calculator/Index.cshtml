@@ -1,0 +1,171 @@
+@model Blog.MVC.Models.CalculatorViewModel.CalculatorViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CALCULADORA DE GASTOS MENSAIS</h2>
+
+<form asp-action="Result">
+    <div class="form-horizontal">
+        <h4>Esta calculadora usa de valores aproximados para estimar o seu gasto mensal</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Lead.State" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Lead.State" class="form-control">
+                    <option value="">Selecione</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amap&aacute;</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Cear&aacute;</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espirito Santo</option>
+                    <option value="GO">Goi&aacute;s</option>
+                    <option value="MA">Maranh&atilde;o</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Par&aacute;</option>
+                    <option value="PB">Para&iacute;ba</option>
+                    <option value="PR">Paran&aacute;</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piau&iacute;</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rond&ocirc;nia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">S&atilde;o Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+                <span asp-validation-for="Lead.State" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Lead.City" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Lead.City" class="form-control"></select>
+                <span asp-validation-for="Lead.City" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Internet" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                Sim
+                @Html.RadioButtonFor(t => t.Internet, Blog.MVC.Models.CalculatorViewModel.option.Yes)
+                N&atilde;o
+                @Html.RadioButtonFor(t => t.Internet, Blog.MVC.Models.CalculatorViewModel.option.No)
+                <span asp-validation-for="Internet" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Lunch" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                Fora
+                @Html.RadioButtonFor(t => t.Lunch, Blog.MVC.Models.CalculatorViewModel.option.Yes)
+                Casa
+                @Html.RadioButtonFor(t => t.Lunch, Blog.MVC.Models.CalculatorViewModel.option.No)
+                <span asp-validation-for="Lunch" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dinner" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                Fora
+                @Html.RadioButtonFor(t => t.Dinner, Blog.MVC.Models.CalculatorViewModel.option.Yes)
+                Casa
+                @Html.RadioButtonFor(t => t.Dinner, Blog.MVC.Models.CalculatorViewModel.option.No)
+                <span asp-validation-for="Dinner" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Clean" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                Sim
+                @Html.RadioButtonFor(t => t.Clean, Blog.MVC.Models.CalculatorViewModel.option.Yes)
+                N&atilde;o
+                @Html.RadioButtonFor(t => t.Clean, Blog.MVC.Models.CalculatorViewModel.option.No)
+                <span asp-validation-for="Clean" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Living" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                Sozinha
+                @Html.RadioButtonFor(t => t.Living, Blog.MVC.Models.CalculatorViewModel.option.Yes)
+                Dividir
+                @Html.RadioButtonFor(t => t.Living, Blog.MVC.Models.CalculatorViewModel.option.No)
+                <span asp-validation-for="Living" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Lead.Email" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Lead.Email" class="form-control" />
+                <span asp-validation-for="Lead.Email" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Lead.Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Lead.Name" class="form-control" />
+                <span asp-validation-for="Lead.Name" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Calcular" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        var estado = document.getElementById('Lead_State');
+        var municipio = document.getElementById('Lead_City');
+
+        function buscaJSON(url, cb) {
+            var request = new XMLHttpRequest();
+            request.open('GET', url, true);
+            request.onload = function () {
+                if (request.status >= 200 && request.status < 400) {
+                    var data = JSON.parse(request.responseText);
+                    cb(null, data);
+                } else {
+                    cb('Error: ' + request.responseText);
+                }
+            };
+            request.onerror = function () {
+                cb('Unknown error');
+            };
+
+            request.send();
+        }
+
+        estado.addEventListener('change', processar);
+
+        function processar(e) {
+            var estado = this.value;
+            buscaJSON('https://gist.githubusercontent.com/eduardo-almeida-II/6e1caf8875949b38a68c/raw/5b1ede8cd5bc1959a8b02b21fcc02f576eb4ef4a/municipios.json', function (err, json) {
+                var cidades = json[estado];
+                municipio.innerHTML = '';
+                cidades.forEach(function (cidade) {
+                    var opt = document.createElement('option');
+                    opt.value = opt.innerHTML = cidade;
+                    municipio.appendChild(opt);
+                });
+            });
+        }
+
+    </script>
+}
+

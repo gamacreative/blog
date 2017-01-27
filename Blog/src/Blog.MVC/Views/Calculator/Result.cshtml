@@ -1,0 +1,12 @@
+@model Blog.MVC.Models.CalculatorViewModel.CalculatorViewModel
+
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Resultado</h2>
+
+<div>
+    <h4>Ol&aacute; @Model.Lead.Name o seu gasto mensal aproximado ser&aacute; de: R$ <b>@Model.TotalValue.ToString()</b></h4>
+</div>

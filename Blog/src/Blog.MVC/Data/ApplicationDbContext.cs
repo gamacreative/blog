@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Blog.MVC.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Blog.MVC.Models;
 
 namespace Blog.MVC.Data
 {
@@ -18,6 +14,7 @@ namespace Blog.MVC.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Lead> Leads { get; set; }
+        public DbSet<CityCalculator> Cities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
