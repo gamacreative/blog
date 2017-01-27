@@ -33,7 +33,7 @@ namespace Blog.MVC.Controllers
                 }
 
                 var email = _context.Leads.Where(t => t.Email == model.Lead.Email).Count();
-                if (email < 0)
+                if (email == 0)
                 {
                     model.Lead.dataCriacao = DateTime.Now;
                     model.Lead.IP = Request.HttpContext.Connection.RemoteIpAddress.ToString();
